@@ -1,30 +1,30 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const WebpackProvideGlobalPlugin = require("webpack-provide-global-plugin");
 
 module.exports = {
   mode: 'development',
   entry: {
-    polyfill: '@babel/polyfill',
-    app: './src/main.js',
+    app: './src/scripts/main.js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: path.resolve(__dirname, 'src/assets'),
+        include: path.resolve(__dirname, 'src/scripts'),
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, 'src/assets'),
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader','sass-loader'],
-        }),
+        use: [ 'style-loader', 'css-loader', {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              plugins: ["postcss-nested"]
+            }
+          }
+        }, ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)$/,
-        include: path.resolve(__dirname, 'src/assets/img'),
+        include: path.resolve(__dirname, 'src/img'),
         use: [{
           loader: 'file-loader',
           options: {
@@ -58,30 +58,25 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: './dist',
     compress: true,
     historyApiFallback: true,
-    hot: true,
-    open: true,
-    overlay: true,
-    port: 8000,
-    stats: {
-      normal: true
+    port: 3000,
+    hot: "only",
+    static: {
+      directory: './dist',
+    },
+    client: {
+      overlay: true,
     }
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({template: './src/assets/index.html'}),
-    new ExtractTextPlugin('style.css'),
     new BrowserSyncPlugin({
       host: 'localhost',
-      port: 8000,
+      port: 3000,
     }),
-    new WebpackProvideGlobalPlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
+    new HtmlWebpackPlugin({template: './src/index.html'}),
   ],
   
   output: {

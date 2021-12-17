@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+}
+.header {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 100px;
+    background: #f5c5c9;
+    color: white;
+    font: bold 40px/100px 'Bad Script', cursive;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5em;
+}
+.takeInfo {
+    margin: 20px auto;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #f5c5c9;
+    border-radius: 1em;
+        &__form {
+            display: flex;
+            max-width: 1300px;
+        }
+}
+.window {
+    margin: 30px 10px;
+    font: normal 40px/100px 'Bad Script', cursive;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    &__name {
+        margin: 0 30px;
+        font: normal 25px/30px 'Bad Script', cursive;
+    }
+    &__field {
+        font: normal 20px/25px 'Bad Script', cursive;
+        height: 94px;
+        resize: none;
+        border: 2px solid #f5c5c9;
+        border-radius: 0.5em;
+        padding: 10px;
+    }
+}
+.button {
+    margin: 0 auto 30px;
+}
+.list {
+    margin: 0 auto;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px double #f5c5c9;
+    border-radius: 1em;
+    padding: 10px;
+    box-sizing: border-box;
+    font: normal 25px/30px 'Bad Script', cursive;
+    &__name {
+
+    }
+    &__case {
+        margin: 10px;
+        width: 1200px;
+        border: 2px dotted #f5c5c9;
+        border-radius: 1em;
+    }
+}
