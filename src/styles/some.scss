@@ -1,11 +1,13 @@
 body {
     margin: 0;
+    mainColor: #f5c5c9;
 }
+
 .header {
     max-width: 1300px;
     margin: 0 auto;
     height: 100px;
-    background: #f5c5c9;
+    background: var(mainColor);
     color: white;
     font: bold 40px/100px 'Bad Script', cursive;
     text-align: center;
@@ -21,6 +23,7 @@ body {
     align-items: center;
     border: 2px solid #f5c5c9;
     border-radius: 1em;
+    box-sizing: border-box;
         &__form {
             display: flex;
             max-width: 1300px;
@@ -28,27 +31,43 @@ body {
 }
 .window {
     margin: 30px 10px;
-    font: normal 40px/100px 'Bad Script', cursive;
-    height: 100px;
+    font: normal 25px/30px 'Bad Script', cursive;
+    /*height: 100px;*/
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: center; 
     &__name {
         margin: 0 30px;
-        font: normal 25px/30px 'Bad Script', cursive;
+
     }
     &__field {
-        font: normal 20px/25px 'Bad Script', cursive;
+        font: normal 20px/30px 'Bad Script', cursive;
         height: 94px;
+        width: 258px;
         resize: none;
         border: 2px solid #f5c5c9;
         border-radius: 0.5em;
         padding: 10px;
+        display: table-cell;
+        align-items: flex-start;
+
+        input& {
+            height: 30px;
+        }
+    }
+    &__conteiner {
+        display: flex;
+        flex-direction: column;
     }
 }
-.button {
-    margin: 0 auto 30px;
+.button {   
+    &__item {
+        margin: 4px 40px;
+        height: 30px;
+        width: 200px;
+    }
 }
+
 .list {
     margin: 0 auto;
     max-width: 1300px;
@@ -65,8 +84,9 @@ body {
     }
     &__case {
         margin: 10px;
+        padding: 5px;
         width: 1200px;
         border: 2px dotted #f5c5c9;
-        border-radius: 1em;
+        border-radius: 0.5em;
     }
 }
