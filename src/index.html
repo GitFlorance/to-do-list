@@ -5,7 +5,7 @@
 <title>Personal site</title>
 <link rel="stylesheet" href="./style.css">
 <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=M+PLUS+1:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
-<script type="text/javascript" src="./js/index.min.js"></script>	
+<script language="JavaScript" type="text/javascript" src="./scripts/main.js"></script>	
 </head>
 <body>
 	<header class="header">
@@ -17,14 +17,14 @@
                 <div class="window__name"> 
                     Какие дела вы планируете?
                 </div>
-                <textarea class="window__field" nam="contest_entry" rows="5" cols="50">Введите ваши дела</textarea>
+                <textarea class="window__field js__case" nam="contest_entry" rows="5" cols="50" placeholder="Введите ваши дела"></textarea>
             </div>
             <div class="window__conteiner">
                 <div class="window"> 
                     <div class="window__name"> 
                         Какую дату указать?
                     </div>
-                    <input type="date" class="window__field" name="your_date" value="Введите дату">
+                    <input type="date" class="window__field js__date" name="your_date" value="Введите дату">
                 </div>
                 <div class="button">
                     <input type="submit" class="button__item">
@@ -34,9 +34,10 @@
     </form>
     <div class="list">
         <div class="list__name">
-            Список ваших будущих дел!
+            Список ваших дел!
         </div>
-        <div class="list__case">1111</div>
-        <div class="list__case">111</div>
-        <div class="list__case">111</div>
+        <div class="list__case js__list"> 
+            <div class="js__a"></div>
+            <div class="js__b"></div>
+        </div>
     </div>

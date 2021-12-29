@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const miniCss = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,14 +18,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [ 'style-loader', 'css-loader', {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: ["postcss-nested"]
-            }
-          }
-        }, ]
+        use: [  miniCss.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -52,8 +46,7 @@ module.exports = {
   resolve: {
     extensions: [ '.js','.scss','.png','jpg' ],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      jquery: "jquery/src/jquery",
+      '@': path.resolve(__dirname, 'src')
     }
   },
 
@@ -77,6 +70,9 @@ module.exports = {
       port: 3000,
     }),
     new HtmlWebpackPlugin({template: './src/index.html'}),
+    new miniCss({
+      filename: 'style.css',
+   }),
   ],
   
   output: {

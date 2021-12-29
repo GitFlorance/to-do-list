@@ -1,13 +1,15 @@
+$mainColor: #ccc5f5;
+$focusColor: #a59ed2;
+
 body {
     margin: 0;
-    mainColor: #f5c5c9;
 }
 
 .header {
     max-width: 1300px;
     margin: 0 auto;
     height: 100px;
-    background: var(mainColor);
+    background: $mainColor;
     color: white;
     font: bold 40px/100px 'Bad Script', cursive;
     text-align: center;
@@ -21,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #f5c5c9;
+    border: 2px solid $mainColor;
     border-radius: 1em;
     box-sizing: border-box;
         &__form {
@@ -45,14 +47,23 @@ body {
         height: 94px;
         width: 258px;
         resize: none;
-        border: 2px solid #f5c5c9;
+        border: 2px solid $mainColor;
         border-radius: 0.5em;
         padding: 10px;
         display: table-cell;
         align-items: flex-start;
+        &:focus {
+            outline: none !important;
+            border:2px solid $focusColor;
+            box-shadow: 0 0 5px #719ECE;
+        }
 
-        input& {
-            height: 30px;
+        &.warning  {
+            &:placeholder-shown {
+                outline: none !important;
+            border:2px solid #ff8686;
+            box-shadow: 0 0 5px #719ECE;
+            }
         }
     }
     &__conteiner {
@@ -60,6 +71,12 @@ body {
         flex-direction: column;
     }
 }
+input.window__field {
+    height: 30px;
+}
+
+
+
 .button {   
     &__item {
         margin: 4px 40px;
@@ -74,7 +91,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px double #f5c5c9;
+    border: 2px double $mainColor;
     border-radius: 1em;
     padding: 10px;
     box-sizing: border-box;
@@ -86,7 +103,8 @@ body {
         margin: 10px;
         padding: 5px;
         width: 1200px;
-        border: 2px dotted #f5c5c9;
+        border: 2px dotted $mainColor;
         border-radius: 0.5em;
+        display:none;
     }
 }
