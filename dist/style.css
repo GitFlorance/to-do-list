@@ -29,7 +29,7 @@ body {
   flex-direction: column;
   align-items: center;
   border: 2px solid #827caf;
-  border-radius: 1em;
+  border-radius: 15px;
   box-sizing: border-box; }
   .takeInfo__form {
     display: flex;
@@ -42,8 +42,7 @@ body {
       display: block; }
       .takeInfo__form {
         display: flex;
-        flex-direction: column;
-        max-width: 350px; } }
+        flex-direction: column; } }
 
 .window {
   margin: 30px 10px 10px 10px;
@@ -109,7 +108,7 @@ input.window__field {
   flex-direction: column;
   align-items: center;
   border: 2px double #827caf;
-  border-radius: 1em;
+  border-radius: 15px;
   padding: 10px;
   box-sizing: border-box;
   font: normal 25px/30px 'Bad Script', cursive; }
