@@ -3,11 +3,14 @@ $focusColor: #a59ed2;
 
 body {
     margin: 0;
+    @media screen and (max-width: 768px) {
+        margin: 10px;
+    }
 }
 
 .header {
-    max-width: 1300px;
     margin: 0 auto;
+    max-width: 1300px;
     height: 100px;
     background: $mainColor;
     color: white;
@@ -16,6 +19,11 @@ body {
     display: flex;
     justify-content: center;
     border-radius: 0.5em;
+    @media screen and (max-width: 768px) {
+        margin: 0;
+        max-width: calc(100vw - 20px);
+        width: calc(100vw - 20px);
+    }
 }
 .takeInfo {
     margin: 20px auto;
@@ -30,6 +38,17 @@ body {
             display: flex;
             max-width: 1300px;
         }
+    @media screen and (max-width: 768px) {
+        margin: 10px 0;
+        width: calc(100vw - 20px);
+        height: 375px;
+        display: block;
+        &__form {
+            display: flex;
+            flex-direction: column;
+            max-width: 350px;
+        }
+    }
 }
 .window {
     margin: 30px 10px;
@@ -40,7 +59,6 @@ body {
     justify-content: center; 
     &__name {
         margin: 0 30px;
-
     }
     &__field {
         font: normal 20px/30px 'Bad Script', cursive;
@@ -70,6 +88,21 @@ body {
         display: flex;
         flex-direction: column;
     }
+    @media screen and (max-width: 768px) {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__name {
+            margin: 10px;
+        }
+        &__field {
+            width: calc(100% - 22px);
+        }
+        &__conteiner {
+            display: block;
+        }
+    }
 }
 input.window__field {
     height: 30px;
@@ -82,6 +115,13 @@ input.window__field {
         margin: 4px 40px;
         height: 30px;
         width: 200px;
+    }
+    @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+    &__item {
+        margin: 10px 40px;
     }
 }
 
@@ -96,9 +136,6 @@ input.window__field {
     padding: 10px;
     box-sizing: border-box;
     font: normal 25px/30px 'Bad Script', cursive;
-    &__name {
-
-    }
     &__case {
         margin: 10px;
         padding: 5px;
@@ -106,5 +143,10 @@ input.window__field {
         border: 2px dotted $mainColor;
         border-radius: 0.5em;
         display:none;
+    }
+    @media screen and (max-width: 768px) {
+        &__case {
+            width: calc(100vw - 60px);
+        }
     }
 }
